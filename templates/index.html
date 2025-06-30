@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Seminar Art Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f8f8f8; }
+        form { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; }
+        img { margin-top: 10px; max-width: 100%; border: 1px solid #ccc; border-radius: 8px; }
+        .preview-container { text-align: center; margin-top: 20px; }
+        .success { background: #d4edda; color: #155724; padding: 15px; border: 1px solid #c3e6cb; border-radius: 5px; margin-bottom: 20px; }
+        .button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Seminar Art Generator</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="success">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form action="/generate" method="post" enctype="multipart/form-data">
+        <label>Data:</label>
+        <input type="text" name="date" placeholder="Ex: Quarta-feira, 18/06/2025" required>
+
+        <label>Hora:</label>
+        <input type="text" name="time" placeholder="Ex: 12h45min" required>
+
+        <label>Duração:</label>
+        <input type="text" name="duration" placeholder="Ex: 45min" required>
+
+        
+        <label>Local:</label>
+        <input type="text" name="location">
+
+        <label>Link da Transmissão:</label>
+        <input type="text" name="stream_link" required>
+
+        <label>Título:</label>
+        <input type="text" name="title" required>
+
+        <label>Palestrante:</label>
+        <input type="text" name="speaker" required>
+
+
+
+        <label>Observação (opcional):</label>
+        <input type="text" name="observation">
+
+        <label>Foto da Palestrante:</label>
+        <input type="file" name="photo" id="photoInput" accept="image/*" required>
+
+        <div class="preview-container">
+            <img id="photoPreview" src="#" alt="Pré-visualização da foto" style="display:none;">
+        </div>
+
+        <input type="submit" value="Gerar Arte" class="button" style="background:#28a745; color:white;">
+    </form>
+
+    {% if image_generated %}
+        <div class="preview-container">
+            <h2>Prévia da Imagem:</h2>
+            <img src="{{ image_url }}" alt="Arte gerada">
+            <br>
+            <a href="{{ image_url }}" download class="button" style="background:#007bff; color:white;">Download Imagem</a>
+        </div>
+    {% endif %}
+
+    <script>
+        document.getElementById("photoInput").addEventListener("change", function(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const img = document.getElementById("photoPreview");
+                img.src = reader.result;
+                img.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        });
+    </script>
+</body>
+</html>
