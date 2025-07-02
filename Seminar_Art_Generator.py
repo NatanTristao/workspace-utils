@@ -9,6 +9,7 @@ UNIFIED_DIMENSION = (1200, 1200)  # Tamanho quadrado padronizado
 
 TITLE_COLOR = (0, 0, 0)
 TEXT_COLOR = (30, 30, 30)
+ICON_COLOR = (180, 0, 0)
 
 # Carrega dados do JSON
 def load_data(file_path):
@@ -116,10 +117,10 @@ def generate_art(data, output_path=".", upload_path="."):
             while draw.textlength(text_info, font=font) > max_info_width and font_size > 14:
                 font_size -= 1
                 font = ImageFont.truetype(FONT_PATH_REGULAR, font_size)
-            draw.text((margin_x+5, y_info), icon, font=FONT_ICON, fill=TEXT_COLOR)
+            draw.text((margin_x+5, y_info), icon, font=FONT_ICON, fill=ICON_COLOR)
             draw.text((margin_x + 50, y_info), text_info, font=font, fill=TEXT_COLOR)
         else:
-            draw.text((margin_x, y_info), icon, font=FONT_ICON, fill=TEXT_COLOR)
+            draw.text((margin_x, y_info), icon, font=FONT_ICON, fill=ICON_COLOR)
             draw.text((margin_x + 50, y_info), text_info, font=FONT_SMALL, fill=TEXT_COLOR)
 
         y_info += 45
