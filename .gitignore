@@ -1,6 +1,11 @@
-# Output images
+# Output images and uploads
 
 static/output/*
+uploads/
+
+# Logs
+
+logs/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
