@@ -75,7 +75,7 @@ def generate_art(data, output_path=".", upload_path="."):
     margin_top = 60
 
     # Texto fixo superior
-    draw.text((225, margin_top), "Série de Seminários do INF", font=ImageFont.truetype(FONT_PATH_BOLD, 52), fill=TITLE_COLOR)
+#    draw.text((225, margin_top), "Série de Seminários do INF", font=ImageFont.truetype(FONT_PATH_BOLD, 52), fill=TITLE_COLOR)
 
     # Título principal com highlight e quebra de linha
     y_title = 300
@@ -133,10 +133,10 @@ def generate_art(data, output_path=".", upload_path="."):
     # Foto da palestrante com máscara circular
     photo_path = os.path.join(upload_path, data['photo'])
     photo = Image.open(photo_path).convert("RGBA")
-    circle_photo = circular_mask(photo, (300, 300))
+    circle_photo = circular_mask(photo, (325, 325))
     shadow_posx=820
     shadow_posy=750
-    background.paste(circle_photo, (860, 500), circle_photo)
+    background.paste(circle_photo, (830, 492), circle_photo)
 
     background.convert("RGB").save(os.path.join(output_path, "seminar_art.png"))
 
