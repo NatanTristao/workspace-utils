@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding:  00;
+        }
+
+        li {
+            margin: 25px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #e63946;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #a4161a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Caixa de Ferramentas do Setor de Comunicação</h1>
+    <p>Escolha uma das opções abaixo:</p>
+    <ul>
+        <li><a href="{{ url_for('defesa_facil') }}">Defesa Fácil</a></li>
+        <li><a href="{{ url_for('seminar_art_generator') }}">Gerador de Arte Seminários INF</a></li>
+    </ul>
+</body>
+</html>
