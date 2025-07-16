@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+<head>
+  <meta charset="UTF-8">
+  <title>Comunica</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0e0e0;
+      text-align: center;
+    }
+    header {
+      background-color: #c12a23;
+      color: #fff;
+    }
+    .header-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 20px;
+    }
+    .header-content img {
+      width: 100px;
+      height: auto;
+      margin-right: 12px;
+    }
+    .header-content h1 {
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      margin: 40px auto;
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 1100px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 30px 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .card .label {
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <img src="{{ url_for('static', filename='images/logo_inf.png') }}" alt="Logo INF">
+      <h1>Central do Setor de Comunicação (Central COMUNICA-INF)</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="grid">
+      <a href="{{ url_for('defesa_facil') }}" target="_blank" class="card-link">
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-scale-unbalanced-flip"></i></div>
+          <div class="label">Defesa Fácil</div>
+        </div>
+      </a>
+
+      <a href="{{ url_for('seminar_art_generator') }}" class="card-link">
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-paintbrush"></i></div>
+          <div class="label">Gerador de Artes</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
