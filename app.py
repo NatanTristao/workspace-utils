@@ -42,7 +42,11 @@ def passwords():
 def totem_visualization():
     return redirect('https://www.inf.ufrgs.br/totem/?preview=true&showImages=true', code=302)
 
+@app.route('/manual')
+def manuel():
+    return redirect('#', code=302)
 
+########### FUNÇÃO USADA PARA O GERADOR DE SEMINÁRIOS ##########
 @app.route('/generate', methods=['POST'])
 def generate():
     data = request.form.to_dict()
@@ -69,6 +73,8 @@ def generate():
     flash('Imagem gerada com sucesso!')
     return render_template('index.html', image_generated=True, image_url=url_for('static', filename='outputs/seminar_art.png'))
 
+
+########### FUNÇÃO USADA PARA O GERADOR DE DEFESAS ##########
 @app.route('/generate_defesa', methods=['POST'])
 def generate_defesa(): 
     data = {
