@@ -48,7 +48,7 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
       gap: 20px;
       padding: 20px;
     }
@@ -90,21 +90,48 @@
 
   <div class="container">
     <div class="grid">
-      <a href="{{ url_for('defesa_facil') }}" target="_blank" class="card-link">
+      <a href="{{ url_for('defesa_facil') }}"  class="card-link">
         <div class="card">
           <div class="icon"><i class="fa-solid fa-scale-unbalanced-flip"></i></div>
-          <div class="label">Defesa Fácil</div>
+          <div class="label">Gerador de Defesa</div>
         </div>
       </a>
 
       <a href="{{ url_for('seminar_art_generator') }}" class="card-link">
         <div class="card">
           <div class="icon"><i class="fa-solid fa-paintbrush"></i></div>
-          <div class="label">Gerador de Artes</div>
+          <div class="label">Gerador de Seminários</div>
+          </div>
+          </a>
+
+      <a href="{{ url_for('go_to_drive') }}" class="card-link">
+        <div class="card">
+          <div class="icon"><i class="fa-brands fa-google-drive"></i></div>
+          <div class="label">Drive (Manual Operacional, patrocínios)</div>
+        </div>
+      </a>
+
+      <a href="{{ url_for('totem_visualization') }}" class="card-link">
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-tv"></i></div>
+          <div class="label">Fila Totem</div>
+        </div>
+      </a>
+
+      <a href="{{ url_for('go_to_canva') }}" class="card-link">
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-pen"></i></div>
+          <div class="label">Canva</div>
+        </div>
+      </a>
+
+      <a href="{{ url_for('passwords') }}" class="card-link">
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-lock"></i></div>
+          <div class="label">Senhas</div>
         </div>
       </a>
     </div>
   </div>
-
 </body>
 </html>
