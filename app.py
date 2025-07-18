@@ -34,6 +34,10 @@ def go_to_drive():
 def go_to_canva():
     return redirect('https://www.canva.com/', code=302)
 
+@app.route('/patrocinios')
+def go_to_sponsors():
+    return redirect('https://docs.google.com/document/d/1nChy-I3ceBQDuGeezoNDTYCoKYr_N03TpJZKWdkxbTY/edit?usp=sharing', code=302)
+
 @app.route('/senhas')
 def passwords():
     return redirect('https://drive.google.com/file/d/11oreuaEYvus529albJyRa7Y_ToLcCRP_/view?usp=sharing', code=302)
